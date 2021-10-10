@@ -23,6 +23,10 @@ section#faq h1, section#phone-gallery h1, section.main-hero h1, header h1, secti
   box-sizing: border-box;
 }
 
+ul {
+  padding: 0;
+}
+
 p {
   margin: 0;
 }
@@ -93,6 +97,7 @@ header nav li:hover a {
 
 @media (max-width: 650px) {
   header .content {
+    padding: 0;
     display: flex;
     flex-direction: column;
   }
