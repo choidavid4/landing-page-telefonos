@@ -1,0 +1,385 @@
+header nav li, header nav ul, header .logo {
+  display: flex;
+  align-items: center;
+}
+
+section#faq, section#phone-gallery, section.main-hero, header {
+  background-color: #1e1e1e;
+}
+section#faq h1, section#phone-gallery h1, section.main-hero h1, header h1, section#faq h2, section#phone-gallery h2, section.main-hero h2, header h2, section#faq h3, section#phone-gallery h3, section.main-hero h3, header h3, section#faq h4, section#phone-gallery h4, section.main-hero h4, header h4, section#faq h5, section#phone-gallery h5, section.main-hero h5, header h5, section#faq h6, section#phone-gallery h6, section.main-hero h6, header h6, section#faq p, section#phone-gallery p, section.main-hero p, header p, section#faq a, section#phone-gallery a, section.main-hero a, header a, section#faq i, section#phone-gallery i, section.main-hero i, header i {
+  color: white;
+}
+
+.carousel-slide, section#features {
+  background-color: #301e38;
+}
+.carousel-slide h1, section#features h1, .carousel-slide h2, section#features h2, .carousel-slide h3, section#features h3, .carousel-slide h4, section#features h4, .carousel-slide h5, section#features h5, .carousel-slide h6, section#features h6, .carousel-slide p, section#features p, .carousel-slide a, section#features a, .carousel-slide i, section#features i {
+  color: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+a:hover {
+  color: black;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+
+button {
+  border: none;
+  padding: 10px 30px;
+  font-size: 1.3em;
+  font-weight: 500;
+  color: white;
+  background-color: #301e38;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+button:hover {
+  transition: 0.25s;
+  background-color: #4c305a;
+}
+
+header .content {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 5vw;
+}
+header * {
+  display: inline;
+}
+header a {
+  text-decoration: none;
+}
+header .logo {
+  padding: 20px 0px;
+  justify-content: flex-start;
+}
+header .logo p {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+header nav ul {
+  height: 100%;
+  justify-content: flex-end;
+}
+header nav li {
+  padding: 10px 20px;
+  height: 100%;
+  font-weight: 500;
+}
+header nav li:hover {
+  background-color: #4c305a;
+  transition: 0.25s;
+  cursor: pointer;
+}
+header nav li:hover a {
+  color: white;
+}
+
+@media (max-width: 650px) {
+  header .content {
+    display: flex;
+    flex-direction: column;
+  }
+  header .logo {
+    justify-content: center;
+  }
+  header nav, header .logo {
+    width: 100%;
+  }
+  header nav li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+section.main-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 125px 0px;
+}
+section.main-hero img {
+  width: 40%;
+}
+section.main-hero .main-cta {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section.main-hero .main-cta h2, section.main-hero .main-cta p, section.main-hero .main-cta button {
+  width: 60%;
+}
+section.main-hero .main-cta h2 {
+  font-size: 2.5em;
+  font-weight: 700;
+}
+section.main-hero .main-cta p {
+  padding: 25px 0px;
+}
+
+@media (max-width: 930px) {
+  section.main-hero {
+    flex-direction: column;
+  }
+  section.main-hero img, section.main-hero .main-cta {
+    width: 70%;
+  }
+  section.main-hero .main-cta h2, section.main-hero .main-cta p, section.main-hero .main-cta button {
+    width: 100%;
+  }
+}
+section#features .content {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 150px 5vw;
+}
+section#features div.feature {
+  width: 30%;
+}
+section#features div.feature .feature-title {
+  display: flex;
+  align-items: center;
+  padding: 10px 0px;
+}
+section#features div.feature .feature-title h2 {
+  padding-left: 20px;
+}
+
+@media (max-width: 930px) {
+  section#features .content {
+    flex-direction: column;
+    align-items: center;
+    padding: 125px 5vw;
+  }
+  section#features div .feature {
+    width: 90%;
+    padding: 25px 0px;
+  }
+}
+section#phone-gallery p {
+  font-size: 1.5em;
+  padding: 20px 50px;
+  text-align: center;
+  font-weight: 500;
+}
+section#phone-gallery .content {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+section#phone-gallery .phone-picture {
+  height: 400px;
+}
+section#phone-gallery .phone-picture:hover .phone-hover {
+  display: flex;
+  animation-name: show-items;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+section#phone-gallery .phone-hover {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+section#phone-gallery .phone-1, section#phone-gallery .phone-6, section#phone-gallery .phone-5, section#phone-gallery .phone-4, section#phone-gallery .phone-3, section#phone-gallery .phone-2 {
+  background-image: url(media/iphone-13.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+section#phone-gallery .phone-2 {
+  background-image: url(media/samsung-s21.jpg);
+}
+section#phone-gallery .phone-3 {
+  background-image: url(media/one-plus-9.jpg);
+}
+section#phone-gallery .phone-4 {
+  background-image: url(media/samsung-note-20.jpg);
+}
+section#phone-gallery .phone-5 {
+  background-image: url(media/asus-rog-5.jpg);
+}
+section#phone-gallery .phone-6 {
+  background-image: url(media/iphone-se-2020.jpg);
+}
+
+@keyframes show-items {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media (max-width: 930px) {
+  section#phone-gallery .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.carousel-slide {
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-slide .avatar {
+  width: 175px;
+  border-radius: 50%;
+}
+.carousel-slide .testimonial-text {
+  width: 60%;
+}
+.carousel-slide h2 {
+  margin: 25px 0px;
+}
+
+.carousel-control-custom {
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.carousel-control-custom--prev {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+}
+.carousel-control-custom--prev:hover {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+
+.carousel-control-custom--next {
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+}
+.carousel-control-custom--next:hover {
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+
+.carousel-indicators-custom button {
+  box-shadow: none;
+}
+
+@media (max-width: 650px) {
+  .carousel-slide .testimonial-text {
+    width: 70%;
+  }
+}
+section#faq .container {
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 125px 5vw;
+  margin: auto;
+}
+section#faq .texto {
+  width: 50%;
+}
+section#faq h2 {
+  font-size: 2.7em;
+  padding: 25px 0px;
+}
+section#faq h3 {
+  font-size: 1.5em;
+  font-weight: normal;
+}
+section#faq img {
+  width: 45%;
+  border-radius: 50px;
+}
+section#faq a:hover {
+  color: #4c305a;
+}
+
+@media (max-width: 930px) {
+  section#faq .container {
+    flex-direction: column-reverse;
+  }
+  section#faq img {
+    width: 60%;
+  }
+  section#faq .texto {
+    width: 100%;
+    text-align: center;
+    padding: 50px 0px;
+  }
+}
+footer {
+  background-color: #2d2d2d;
+}
+footer * {
+  color: white;
+}
+footer .container {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 100px 5vw;
+  padding-bottom: 35px;
+}
+footer .useful-links {
+  display: flex;
+}
+footer .useful-links a {
+  padding: 0px 10px;
+}
+footer .useful-links a:hover {
+  color: #4c305a;
+}
+footer .socials {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+}
+footer .socials p {
+  padding: 0px 20px;
+  font-weight: bold;
+  cursor: default;
+  margin: 0;
+}
+footer .icons i {
+  padding: 0px 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 930px) {
+  footer .container {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 75px 0px;
+    padding-bottom: 50px;
+  }
+  footer .socials {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  footer .socials p {
+    padding: 20px 0px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

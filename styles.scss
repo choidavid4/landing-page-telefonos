@@ -1,0 +1,572 @@
+// Imports
+@use "sass:color";
+
+//Variables
+$header-height: 70px;
+$nav-hpadding: 20px;
+$main-font-family: 'Roboto', sans-serif;
+$my-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+$content-width: 1400px;
+$header-media: 650px;
+$hero-media: 930px;
+$main-color: red;
+$secondary-color-2: hsl(280, 30%, 17%);
+$secondary-color: color.adjust($secondary-color-2, $lightness: 10%);
+$button-color: white;
+
+$my-black: rgb(30,30,30);
+$footer-color: rgb(45,45,45);
+$font-color-light: #2e2e2e;
+
+// Extendable classes
+%flex-vcenter{
+    display: flex;
+    align-items: center;
+}
+
+%black-theme{
+    background-color: $my-black;
+    h1,h2,h3,h4,h5,h6,p,a,i{
+        color: white;
+    }
+}
+
+%secondary-theme{
+    background-color: $secondary-color-2;
+    h1,h2,h3,h4,h5,h6,p,a,i{
+        color: white;
+    }
+}
+
+%light-theme{
+    background-color: white;
+    
+    h1,h2,h3,h4,h5,h6,p,a{
+        color: $font-color-light;
+    }
+}
+
+//General styles
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p{
+    margin: 0;
+}
+
+a:hover{
+    color: black;
+}
+
+body{
+    font-family: $main-font-family;
+    scroll-behavior: smooth;
+}
+
+button{
+    border: none;
+    padding: 10px 30px;
+    font-size: 1.3em;
+    font-weight: 500;
+    color: $button-color;
+    background-color: $secondary-color-2;
+    border-radius: 5px;
+    box-shadow: $my-shadow;
+    cursor: pointer;
+    
+
+    &:hover{
+        transition: 0.25s;
+        
+        background-color: $secondary-color;
+    }
+}
+
+//Header styles
+header{
+    @extend %black-theme;
+    // @extend %light-theme;
+
+    .content{
+        max-width: $content-width;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 5vw;
+    }
+
+    *{
+        display: inline;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    .logo{
+        // width: 40%;
+        padding: 20px 0px;
+        @extend %flex-vcenter;
+        justify-content: flex-start;
+
+        p{
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    }
+
+    nav{
+        // width: 60%;
+        
+
+        ul{
+            height: 100%;
+            @extend %flex-vcenter;
+            justify-content: flex-end;
+        }
+
+        li{
+            padding: 10px $nav-hpadding;
+            height: 100%;
+            @extend %flex-vcenter;
+            font-weight: 500;
+        }
+
+        li:hover{
+            background-color: $secondary-color;
+            transition: 0.25s;
+            cursor: pointer;
+            
+            a{
+                color:white;
+            }
+            // border-bottom: 5px solid white;
+        }
+    }
+}
+
+// media query for header
+@media (max-width: $header-media){
+    header{
+        .content{
+            display: flex;
+            flex-direction: column;
+        }
+
+       .logo{
+           justify-content: center;
+       }
+
+        nav, .logo{
+            width: 100%;
+        }
+
+        nav li{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+// main-hero styles
+section.main-hero{
+    @extend %black-theme;
+    // @extend %light-theme;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 125px 0px;
+
+    img{
+        width: 40%;
+    }
+
+    .main-cta{
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        h2, p, button{
+            width: 60%;
+        }
+
+        h2{
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        
+        p{
+            padding: 25px 0px;
+        }   
+    }
+}
+
+//media main-hero
+@media (max-width: $hero-media){
+    section.main-hero{
+        flex-direction: column;
+
+        img, .main-cta{
+            width: 70%;
+        }
+
+        .main-cta{
+
+            h2, p, button{
+                width: 100%;
+            }  
+
+            
+        }
+    }
+}
+
+//features styles
+section#features{
+    @extend %secondary-theme;
+
+    .content{
+        max-width: $content-width;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 150px 5vw;
+    }
+
+    div.feature{
+        width: 30%;
+        // padding: 0px 5vw;
+
+        .feature-title{
+            display: flex;
+            align-items: center;
+            padding: 10px 0px;
+            
+            h2{
+                padding-left: 20px;
+            }
+        }
+    }
+}
+
+//features media query
+@media (max-width: $hero-media) {
+    section#features{
+        .content{
+            flex-direction: column;
+            align-items: center;
+            padding: 125px 5vw;
+        }
+
+        div .feature{
+            width: 90%;
+            padding: 25px 0px;
+        }
+    }
+}
+
+//grid styles
+section#phone-gallery{
+    @extend %black-theme;
+
+    p{
+        font-size: 1.5em;
+        padding: 20px 50px;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    .content{
+        // width: $content-width;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .phone-picture{
+        height: 400px;
+
+        &:hover .phone-hover{
+            display: flex;
+            animation-name: show-items;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+    }
+
+    .phone-hover{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.65);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .phone-1{
+        background-image: url(media/iphone-13.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .phone-2{
+        @extend .phone-1;
+        background-image: url(media/samsung-s21.jpg);
+    }
+    .phone-3{
+        @extend .phone-1;
+        background-image: url(media/one-plus-9.jpg);
+    }
+    .phone-4{
+        @extend .phone-1;
+        background-image: url(media/samsung-note-20.jpg)
+    }
+    .phone-5{
+        @extend .phone-1;
+        background-image: url(media/asus-rog-5.jpg)
+    }
+    .phone-6{
+        @extend .phone-1;
+        background-image: url(media/iphone-se-2020.jpg);
+    }
+}
+
+@keyframes show-items {
+    0%{ opacity: 0;}
+    100%{opacity: 1;}
+}
+
+//media for gallery
+@media (max-width:$hero-media){
+    section#phone-gallery{
+        .content{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+//Testimonials styles
+
+.carousel-slide{
+    @extend %secondary-theme;
+    
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .avatar{
+        width: 175px;
+        border-radius: 50%;
+        // margin-bottom: 20px;
+    }
+
+    .testimonial-text{
+        width: 60%;
+    }
+
+    h2{
+        margin: 25px 0px;
+    }
+}
+
+.carousel-control-custom{
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.carousel-control-custom--prev{
+    background: linear-gradient(
+            90deg,
+            rgba(0,0,0,0.25),
+            rgba(0,0,0,0)
+        );
+
+    &:hover{
+        background: linear-gradient(
+            90deg,
+            rgba(0,0,0,0.5),
+            rgba(0,0,0,0)
+        );
+    }
+}
+
+.carousel-control-custom--next{
+    background: linear-gradient(
+            270deg,
+            rgba(0,0,0,0.25),
+            rgba(0,0,0,0)
+        );
+
+    &:hover{
+        background: linear-gradient(
+            270deg,
+            rgba(0,0,0,0.5),
+            rgba(0,0,0,0)
+        );
+    }
+}
+
+.carousel-indicators-custom button{
+    box-shadow: none;
+}
+
+//testimonials media
+@media (max-width: $header-media){
+    .carousel-slide{
+        .testimonial-text{
+            width: 70%;
+        }
+    }
+}
+
+//faq styles
+section#faq{
+    @extend %black-theme;
+    // @extend %light-theme;
+    
+    .container{
+        max-width: $content-width;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 125px 5vw;
+        margin: auto;
+    }
+
+    .texto{
+        width: 50%;
+    }
+
+    h2{
+        font-size: 2.7em;
+        padding: 25px 0px;
+        
+    }
+
+    h3{
+        font-size: 1.5em;
+        font-weight: normal;
+    }
+
+    img{
+        width: 45%;
+        border-radius: 50px;
+    }
+
+    
+
+    a:hover{
+        color: $secondary-color;
+    }
+}
+
+//faq media
+
+@media (max-width:$hero-media){
+    section#faq{
+        
+        .container{
+            flex-direction: column-reverse;
+        }
+        
+
+        img{
+            width: 60%;
+        }
+
+        .texto{
+            width: 100%;
+            text-align: center;
+            padding: 50px 0px;
+        }
+    }
+}
+
+
+
+
+
+// footer styles
+footer{
+    *{
+        color: white;
+    }   
+    
+    background-color: $footer-color;
+    .container{
+        max-width: $content-width;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 100px 5vw;
+        padding-bottom: 35px;
+    }
+
+    .useful-links{
+        display: flex;
+
+        a{
+            padding: 0px 10px;
+
+            &:hover{
+                color: $secondary-color;
+            }
+        }
+    }
+
+    .socials{
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-end;
+
+        p{
+            padding: 0px 20px;
+            font-weight: bold;
+            cursor: default;
+            margin: 0;
+        }
+    }
+
+    .icons{
+        // display: flex;
+        // justify-content: center;
+
+        i{
+            padding: 0px 5px;
+            cursor: pointer;
+        }
+    }
+}
+
+//footer media
+@media (max-width: $hero-media){
+    footer{
+        .container{
+            flex-direction: column-reverse;
+            align-items: center;
+            padding: 75px 0px;
+            padding-bottom: 50px;
+        }
+
+        .socials{
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 20px;
+
+            p{
+                padding: 20px 0px;
+            }
+        }
+
+    }
+}
